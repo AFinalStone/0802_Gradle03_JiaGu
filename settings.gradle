@@ -1,2 +1,3 @@
-rootProject.name = "Android0702_Gradle_AppJiaGu"
+rootProject.name = "Android0703_Gradle_JiaGu"
 include ':app'
+include ':JiaGuPlugin'

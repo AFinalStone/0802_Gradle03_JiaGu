@@ -6,9 +6,15 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
+        //引入本地仓库
+        maven {
+            url uri('./repo') //指定本地maven的路径，在项目根目录下
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
+        //引入本地仓库中的自定义加固插件依赖
+        classpath 'com.afs.plugin:jiagulocal:1.0.0'
     }
 }
 
@@ -17,6 +23,9 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+        maven {
+            url uri('./repo') //指定本地maven的路径，在项目根目录下
+        }
     }
 }
 

@@ -1,0 +1,29 @@
+apply plugin: 'java-library'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation gradleApi()
+    implementation localGroovy()
+}
+repositories {
+    mavenCentral() //必须
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+//通过maven将插件发布到本地的脚本配置，根据自己的要求来修改
+uploadArchives {
+    repositories.mavenDeployer {
+        // 配置 pom 信息
+        pom.version = '1.0.0'
+        pom.artifactId = 'jiagulocal'
+        pom.groupId = 'com.afs.plugin'
+        // 配置仓库地址
+        repository(url: uri('../repo'))
+    }
+}
